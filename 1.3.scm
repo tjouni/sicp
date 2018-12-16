@@ -8,7 +8,7 @@
 
 (define (square-sum-largest x y z)
   (cond ((and (>= x y) (>= y z) (sum-of-squares x y)))
-        ((and (>= y x) (>= z y) (sum-of-squares y z)))
+	((and (>= y x) (>= z y) (sum-of-squares y z)))
 	((and (>= x y) (>= z y) (sum-of-squares x z)))))
 	     
 (square-sum-largest 1 2 3);Value: 13
