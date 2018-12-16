@@ -23,9 +23,8 @@
       (* 2 guess))
      3))
 
-(define (good-enough? x guess)
-  (< (abs (- (cube x) guess))
-     0.0000000000001))
+(define (good-enough? guess x)
+  (= guess (improve guess x)))
 
 (define (cube-root-iter guess x)
   (if (good-enough? guess x)
@@ -39,6 +38,6 @@
 
 (cube-root 27);Value: 3.
 (cube-root -2);Value: -1.2599210498948732
-(cube-root 0.00001);Value: 2.1544346925573252e-2
+(cube-root 0.00001);Value: .02154434690031884
 (cube-root 1);Value: 1.
 (cube-root 3);Value: 1.4422495703074085
