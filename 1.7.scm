@@ -24,12 +24,8 @@
   (average guess (/ x guess)))
 
 (define (good-enough? guess x)
-  (<
-     (/
-      (abs (- guess
-	      (improve guess x)))
-      guess)
-     0.00001))
+  (= guess (improve guess x))); good enough when the guess doesn't
+			      ; improve any more
 
 (define (sqrt-iter guess x)
   (if (good-enough? guess x)
@@ -40,5 +36,5 @@
 (define (sqrt x)
   (sqrt-iter 1.0 x))
 
-(sqrt 0.00001);Value: 3.1622926477232706e-3
-(sqrt 999999999);Value: 31622.780573087948
+(sqrt 0.00001);Value: 3.1622776601683794e-3
+(sqrt 999999999);Value: 31622.776585872405
