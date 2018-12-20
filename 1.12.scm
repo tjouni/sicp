@@ -2,9 +2,7 @@
 
 (define (pascal row column)
   (cond ((> column row) 0)
-        ((= row 1) 1)
-	((= column 0) 1)
-	((= column row) 1)
+        ((or (= column 0) (= row 1) (= column row)) 1)
 	(else (+ (pascal (- row 1) (- column 1))
 		 (pascal (- row 1) column)))))
 
