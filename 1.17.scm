@@ -4,6 +4,9 @@
 
 (define (halve x) (/ x 2))
 
+(define (even? n)
+  (= (remainder n 2) 0))
+
 (define (mul a b)
   (cond ((or (= a 0) (= b 0)) 0)
 	((= b 1) a)
