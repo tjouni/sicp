@@ -20,7 +20,7 @@
 			(* (lower-bound x) (lower-bound y))))
 	((and (> (lower-bound x) 0) (> (lower-bound y) 0))
 	 (make-interval (* (lower-bound x) (lower-bound y))
-			(* (upper-bound x) (upper-bound x))))
+			(* (upper-bound x) (upper-bound yb))))
 	((> (lower-bound y) 0)
 	 (make-interval (* (lower-bound x) (upper-bound y))
 			(* (upper-bound x) (upper-bound y))))

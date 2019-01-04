@@ -20,7 +20,7 @@
 			(* (lower-bound x) (lower-bound y))))
 	((and (> (lower-bound x) 0) (> (lower-bound y) 0))
 	 (make-interval (* (lower-bound x) (lower-bound y))
-			(* (upper-bound x) (upper-bound x))))
+			(* (upper-bound x) (upper-bound y))))
 	((> (lower-bound y) 0)
 	 (make-interval (* (lower-bound x) (upper-bound y))
 			(* (upper-bound x) (upper-bound y))))
@@ -48,13 +48,12 @@
 		(make-interval (/ 1.0 (upper-bound y))
 			       (/ 1.0 (lower-bound y))))))
 
-(define (make-interval a b) (cons a b))
+(define (make-interval a b)
+  (if (> a b) (cons b a)
+      (cons a b)))
 
-(define (upper-bound x)
-  (max (cdr x) (car x)))
-
-(define (lower-bound x)
-  (min (cdr x) (car x)))
+(define upper-bound cdr)
+(define lower-bound car)
 
 (define (make-center-width c w)
   (make-interval (- c w) (+ c w)))
