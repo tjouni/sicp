@@ -1,5 +1,7 @@
 ;;;; ex 2.39 - reverse by folding
 
+(define nil '())
+
 (define (reverse sequence)
   (fold-right (lambda (x y) (append y (list x))) nil sequence))
 
